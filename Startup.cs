@@ -1,3 +1,4 @@
+using backend_coding_challenge.GithubClient;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,7 @@ namespace backend_coding_challenge
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend_coding_challenge", Version = "v1" });
             });
+            services.AddScoped<ITrendingRepositoriesClient, TrendingRepositoriesClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
