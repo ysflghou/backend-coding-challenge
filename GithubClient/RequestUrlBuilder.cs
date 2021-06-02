@@ -14,8 +14,8 @@ namespace backend_coding_challenge.GithubClient
         private static string BuildRequestQueryParameters()
         {
             var todaysDate = DateTime.Today;
-            var monthBeforDate = todaysDate.Subtract(TimeSpan.FromDays(30)).ToString("yyyy-MM-dd");
-            var queryParameters = $"q=created:>{monthBeforDate}&sort=stars&order=desc";
+            var monthBeforeToday = todaysDate.Subtract(TimeSpan.FromDays(30)).ToString("yyyy-MM-dd");
+            var queryParameters = $"q=created:>{monthBeforeToday}&sort=stars&order=desc";
             return queryParameters;
         }
     }
