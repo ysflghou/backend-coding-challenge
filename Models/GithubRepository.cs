@@ -11,8 +11,8 @@ namespace backend_coding_challenge.Models
         public int Id { get; set; }
 
         [DataMember]
-        [JsonProperty("full_name")]
-        public string FullName { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
         [DataMember]
         [JsonProperty("html_url")]
