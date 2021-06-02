@@ -15,6 +15,10 @@ namespace backend_coding_challenge.Models
         public string Name { get; set; }
 
         [DataMember]
+        [JsonProperty("stargazers_count")]
+        public string StartsNumber { get; set; }
+
+        [DataMember]
         [JsonProperty("html_url")]
         public string Url { get; set; }
 
