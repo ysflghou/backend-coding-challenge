@@ -1,14 +1,23 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace backend_coding_challenge.Models
 {
+    [DataContract]
     public class ProgrammingLanguage
     {
+        [DataMember]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
-        public int NumberOfGithubRepositories { get; set; }
-        public IReadOnlyList<GithubRepository> GithubRepositories;
+
+        [DataMember]
+        [JsonPropertyName("github_repositories_count")]
+        public int GithubRepositoriesCount { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("github_repositories")]
+        public IReadOnlyList<GithubRepository> GithubRepositories { get; set; }
     }
 }
