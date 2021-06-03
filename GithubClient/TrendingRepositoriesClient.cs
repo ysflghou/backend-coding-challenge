@@ -16,6 +16,7 @@ namespace backend_coding_challenge.GithubClient
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
                 httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("backend_coding_challenge", "v1"));
+                httpClient.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
                 HttpResponseMessage response = await httpClient.SendAsync(requestMessage);
                 if (!response.IsSuccessStatusCode)
                 {
