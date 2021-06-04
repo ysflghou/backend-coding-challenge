@@ -30,8 +30,8 @@ And head to `http://localhost:5000/LanguagesInTrendingRepositories`
 To run using docker, you can use the following commands:
 
 ```
-docker run -p 8080:80 binarythistle/simpleapi
-docker run -p 80 backend-coding-challenge
+docker build -t backend-coding-challenge .
+docker run -p 8080:80 backend-coding-challenge
 ```
 
-Then head to and head to `http://localhost:8080/LanguagesInTrendingRepositories`
+Then head to `http://localhost:8080/LanguagesInTrendingRepositories`
