@@ -18,10 +18,7 @@ namespace backend_coding_challenge.GithubClient
                 httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("backend_coding_challenge", "v1"));
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
                 HttpResponseMessage response = await httpClient.SendAsync(requestMessage);
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw new Exception("Cannot retrieve tasks");
-                }
+                response.EnsureSuccessStatusCode();
                 string content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<GithubRepositories>(content);
             }

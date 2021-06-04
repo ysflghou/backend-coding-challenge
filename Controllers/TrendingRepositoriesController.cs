@@ -3,7 +3,6 @@ using backend_coding_challenge.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace backend_coding_challenge.Controllers
@@ -33,7 +32,7 @@ namespace backend_coding_challenge.Controllers
             }
             catch(Exception e)
             {
-                return NotFound(e);
+                return NotFound($"Failed to get the trending repositories, original error message: {e.Message}");
             }
         }
     }
