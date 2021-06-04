@@ -18,6 +18,11 @@ namespace backend_coding_challenge.Controllers
             this.trendingRepositoriesClient = trendingRepositoriesClient;
         }
 
+        /// <summary>
+        /// Returns the languages used in the trending github repositores for the last 30 days
+        /// with the number and the list of repositories used in each language.
+        /// In case of any exception, the api returns a NotFound result with the exception object
+        /// </summary>
         [HttpGet("/LanguagesInTrendingRepositories")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProgrammingLanguages))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
