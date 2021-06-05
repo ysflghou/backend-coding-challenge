@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend-coding-challenge", "backend-coding-challenge.csproj", "{6F1A9A30-9740-4B05-9146-007855028A58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend-coding-challenge", "backend-coding-challenge\backend-coding-challenge.csproj", "{912DF3B0-3C48-4A31-8730-446C7B86ADB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F1A9A30-9740-4B05-9146-007855028A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F1A9A30-9740-4B05-9146-007855028A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F1A9A30-9740-4B05-9146-007855028A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F1A9A30-9740-4B05-9146-007855028A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912DF3B0-3C48-4A31-8730-446C7B86ADB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912DF3B0-3C48-4A31-8730-446C7B86ADB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912DF3B0-3C48-4A31-8730-446C7B86ADB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912DF3B0-3C48-4A31-8730-446C7B86ADB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CD4D5CDA-F272-4946-9193-EDF430EEEC7F}
+		SolutionGuid = {E630BDD4-125E-41FE-8EF8-793A2696097F}
 	EndGlobalSection
 EndGlobal

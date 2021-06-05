@@ -3,14 +3,13 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["backend-coding-challenge.csproj", ""]
-RUN dotnet restore "./backend-coding-challenge.csproj"
+COPY ["backend-coding-challenge/backend-coding-challenge.csproj", "backend-coding-challenge/"]
+RUN dotnet restore "backend-coding-challenge/backend-coding-challenge.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/backend-coding-challenge"
 RUN dotnet build "backend-coding-challenge.csproj" -c Release -o /app/build
 
 FROM build AS publish
