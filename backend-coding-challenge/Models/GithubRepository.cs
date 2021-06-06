@@ -16,7 +16,7 @@ namespace backend_coding_challenge.Models
 
         [DataMember]
         [JsonProperty("stargazers_count")]
-        public int StartsNumber { get; set; }
+        public int StarsNumber { get; set; }
 
         [DataMember]
         [JsonProperty("html_url")]
