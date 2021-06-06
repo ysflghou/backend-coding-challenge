@@ -9,10 +9,17 @@ namespace backend_coding_challenge.GithubClient
 {
     public class TrendingRepositoriesClient : ITrendingRepositoriesClient
     {
+        private readonly IHttpClientFactory httpClientFactory;
+
+        public TrendingRepositoriesClient(IHttpClientFactory httpClientFactory)
+        {
+            this.httpClientFactory = httpClientFactory;
+        }
+
         public async Task<GithubRepositories> GetTrendingRepositoriesAsync()
         {
             Uri requestUri = RequestUriBuilder.BuildRequestUri();
-            using (var httpClient = new HttpClient())
+            using (HttpClient httpClient = httpClientFactory.CreateClient())
             {
                 var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
                 httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("backend_coding_challenge", "v1"));
