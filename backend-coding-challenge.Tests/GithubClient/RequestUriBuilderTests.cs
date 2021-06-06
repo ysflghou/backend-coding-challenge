@@ -9,10 +9,15 @@ namespace backend_coding_challenge.Tests.GithubClient
         [Test]
         public void BuildRequestUri_Returns_CorrectGithubTrendingRepositoriesUri()
         {
+            // Arrange
             var todaysDate = DateTime.Today;
             var monthBeforeToday = todaysDate.Subtract(TimeSpan.FromDays(30)).ToString("yyyy-MM-dd");
             var expectedUri = new Uri($"https://api.github.com/search/repositories?q=created:>{monthBeforeToday}&sort=stars&order=desc&per_page=100");
+            
+            // Act
             var actualUri = RequestUriBuilder.BuildRequestUri();
+
+            // Assert
             Assert.AreEqual(expectedUri, actualUri);
         }
     }
