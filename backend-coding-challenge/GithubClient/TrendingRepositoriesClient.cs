@@ -9,7 +9,7 @@ namespace backend_coding_challenge.GithubClient
 {
     public class TrendingRepositoriesClient : ITrendingRepositoriesClient
     {
-        public async Task<GithubRepositories> GetTrendingReposAsync()
+        public async Task<GithubRepositories> GetTrendingRepositoriesAsync()
         {
             Uri requestUri = RequestUriBuilder.BuildRequestUri();
             using (var httpClient = new HttpClient())

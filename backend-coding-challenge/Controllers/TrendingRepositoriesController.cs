@@ -30,7 +30,7 @@ namespace backend_coding_challenge.Controllers
         {
             try
             {
-                GithubRepositories trendingRepositories = await trendingRepositoriesClient.GetTrendingReposAsync();
+                GithubRepositories trendingRepositories = await trendingRepositoriesClient.GetTrendingRepositoriesAsync();
                 ProgrammingLanguages programmingLanguages = ProgrammingLanguagesBuilder
                     .BuildProgrammingLanguagesInTrendingRepositories(trendingRepositories);
                 return Ok(programmingLanguages);
