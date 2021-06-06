@@ -25,7 +25,10 @@ namespace backend_coding_challenge.GithubClient
                 httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("backend_coding_challenge", "v1"));
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
                 HttpResponseMessage response = await httpClient.SendAsync(requestMessage);
-                response.EnsureSuccessStatusCode();
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new HttpRequestException("Failed to retrieve trending repositories from github api");
+                }
                 string content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<GithubRepositories>(content);
             }
