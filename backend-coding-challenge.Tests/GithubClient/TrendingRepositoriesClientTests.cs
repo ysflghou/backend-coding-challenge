@@ -1,5 +1,6 @@
 ﻿using backend_coding_challenge.GithubClient;
 using backend_coding_challenge.Models;
+using FluentAssertions;
 using Moq;
 using Moq.Protected;
 using NUnit.Framework;
@@ -101,14 +102,7 @@ namespace backend_coding_challenge.Tests.GithubClient
             GithubRepositories trendingRepositories = await trendingRepositoriesClient.GetTrendingRepositoriesAsync();
 
             // Assert
-            Assert.AreEqual(expectedTrendingRepositories.TotalCount, trendingRepositories.TotalCount);
-            Assert.AreEqual(expectedTrendingRepositories.IncompleteResults, trendingRepositories.IncompleteResults);
-            Assert.AreEqual(expectedTrendingRepositories.Repositories[0].Id, trendingRepositories.Repositories[0].Id);
-            Assert.AreEqual(expectedTrendingRepositories.Repositories[1].Name, trendingRepositories.Repositories[1].Name);
-            Assert.AreEqual(expectedTrendingRepositories.Repositories[2].StarsNumber, trendingRepositories.Repositories[2].StarsNumber);
-            Assert.AreEqual(expectedTrendingRepositories.Repositories[0].Url, trendingRepositories.Repositories[0].Url);
-            Assert.AreEqual(expectedTrendingRepositories.Repositories[1].Description, trendingRepositories.Repositories[1].Description);
-            Assert.AreEqual(expectedTrendingRepositories.Repositories[2].Language, trendingRepositories.Repositories[2].Language);
+            trendingRepositories.Should().BeEquivalentTo(expectedTrendingRepositories);
         }
 
         private static Mock<HttpMessageHandler> CreateMinimalHttpMessageHandlerMock(HttpResponseMessage httpResponseMessage)
