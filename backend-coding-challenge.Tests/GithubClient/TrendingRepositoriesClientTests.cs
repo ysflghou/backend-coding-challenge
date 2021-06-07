@@ -58,6 +58,28 @@ namespace backend_coding_challenge.Tests.GithubClient
         }
 
         [Test]
+        public void GetTrendingRepositoriesAsync_Throws_HttpRequestException_When_Response_Is_not_Successful()
+        {
+            // Arrange
+            var response = new HttpResponseMessage()
+            {
+                StatusCode = HttpStatusCode.InternalServerError,
+                Content = new StringContent("Error"),
+            };
+            Mock<HttpMessageHandler> httpMessageHandlerMock = CreateMinimalHttpMessageHandlerMock(response);
+
+            var httpClient = new HttpClient(httpMessageHandlerMock.Object);
+            var httpClientFactoryMock = new Mock<IHttpClientFactory>();
+            httpClientFactoryMock.Setup(_ => _.CreateClient(string.Empty))
+                    .Returns(httpClient);
+            var trendingRepositoriesClient = new TrendingRepositoriesClient(httpClientFactoryMock.Object);
+            var expectedTrendingRepositories = GetExpectedTrendingRepositories();
+
+            // Act + Assert
+            Assert.ThrowsAsync<HttpRequestException>(() => trendingRepositoriesClient.GetTrendingRepositoriesAsync());
+        }
+
+        [Test]
         public async Task GetTrendingRepositoriesAsync_Gets_TrendingRepositories()
         {
             // Arrange
