@@ -9,11 +9,11 @@ namespace backend_coding_challenge.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TrendingRepositoriesController : ControllerBase
+    public class ProgrammingLanguagesController : ControllerBase
     {
         private readonly ITrendingRepositoriesClient trendingRepositoriesClient;
 
-        public TrendingRepositoriesController(ITrendingRepositoriesClient trendingRepositoriesClient)
+        public ProgrammingLanguagesController(ITrendingRepositoriesClient trendingRepositoriesClient)
         {
             this.trendingRepositoriesClient = trendingRepositoriesClient;
         }
@@ -21,12 +21,12 @@ namespace backend_coding_challenge.Controllers
         /// <summary>
         /// Returns the languages used in the trending github repositores for the last 30 days
         /// with the number and the list of repositories used in each language.
-        /// In case of any exception, the api returns a NotFound result with the exception object
+        /// In case of an exception, the api returns a NotFound result with the exception object
         /// </summary>
         [HttpGet("/LanguagesInTrendingRepositories")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProgrammingLanguages))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetTrendingRepositories()
+        public async Task<IActionResult> GetProgrammingLanguagesInTrendingRepositories()
         {
             try
             {
