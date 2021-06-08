@@ -84,9 +84,9 @@ namespace backend_coding_challenge.Tests.Controllers
 
             // Assert
             Assert.IsInstanceOf<OkObjectResult>(apiResult);
-            OkObjectResult OkApiResult = apiResult as OkObjectResult;
-            Assert.IsNotNull(OkApiResult.Value);
-            var programmingLanguages = OkApiResult.Value;
+            OkObjectResult okApiResult = apiResult as OkObjectResult;
+            Assert.IsNotNull(okApiResult.Value);
+            var programmingLanguages = okApiResult.Value;
             programmingLanguages.Should().BeEquivalentTo(expectedProgrammingLanguages);
         }
     }
