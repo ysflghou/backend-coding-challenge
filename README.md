@@ -86,6 +86,6 @@ Api response example:
 }
 ```
 
-In case of an exception, the api returns a NotFount result with the error message.
+In case of an exception, the api returns a NotFound result with the error message.
 
-Note that the implemetation is basic without authentication nor rate limiting.
+Note that the implementation is basic without authentication nor rate limiting.
